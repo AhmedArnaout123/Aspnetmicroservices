@@ -1,4 +1,6 @@
+using Basket.API.GrpcServices;
 using Basket.API.Repositories;
+using Discount.Grpc.Protos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +28,10 @@ namespace Basket.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddGrpcClient<DiscountService.DiscountServiceClient>(
+                o => o.Address = new Uri(Configuration["GrpcSettings:Discount"])
+            );
+            services.AddScoped<DiscountGrpcService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
