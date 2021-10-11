@@ -15,9 +15,9 @@ namespace Discount.Grpc.Services
     public class DiscountService : GrpcProtos.DiscountService.DiscountServiceBase
     {
         private readonly IDiscountsRepository _discountsRepository;
-        private readonly ILogger _logger;
+        private readonly ILogger<DiscountService> _logger;
         private readonly IMapper _mapper;
-        public DiscountService(IDiscountsRepository discountsRepository, ILogger logger,
+        public DiscountService(IDiscountsRepository discountsRepository, ILogger<DiscountService> logger,
                                IMapper mapper)
         {
             _discountsRepository = discountsRepository;
