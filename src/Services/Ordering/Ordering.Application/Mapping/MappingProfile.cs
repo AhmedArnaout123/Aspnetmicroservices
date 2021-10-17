@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Mapping
 {
-    class MappingProfile : Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {

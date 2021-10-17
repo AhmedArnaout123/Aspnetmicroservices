@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
 {
-    class CheckoutOrderCommandValidator : AbstractValidator<CheckoutOrderCommand>
+    public class CheckoutOrderCommandValidator : AbstractValidator<CheckoutOrderCommand>
     {
         public CheckoutOrderCommandValidator()
         {

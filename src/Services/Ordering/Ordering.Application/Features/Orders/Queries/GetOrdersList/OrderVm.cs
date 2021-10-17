@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
-    class OrderVm
+    public class OrderVm
     {
         public int Id { get; set; }
 

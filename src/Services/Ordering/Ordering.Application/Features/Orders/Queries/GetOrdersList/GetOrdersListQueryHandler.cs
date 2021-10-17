@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Queries.GetOrdersList
 {
-    class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrderVm>>
+    public class GetOrdersListQueryHandler : IRequestHandler<GetOrdersListQuery, List<OrderVm>>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
