@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Behaviors
 {
-    class UnhandeldExceptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    class UnhandledExceptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly ILogger<TRequest> _logger;
 
-        public UnhandeldExceptionBehavior(ILogger<TRequest> logger)
+        public UnhandledExceptionBehavior(ILogger<TRequest> logger)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
