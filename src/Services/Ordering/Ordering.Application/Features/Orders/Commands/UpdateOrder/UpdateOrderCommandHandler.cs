@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracs.Persistence;
+using Ordering.Application.Exceptions;
 using Ordering.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -31,14 +32,14 @@ namespace Ordering.Application.Features.Orders.Commands.UpdateOrder
 
             if(orderToUpdate == null)
             {
-                _logger.LogError("Oreder not found..");
-                //throw new NotFoundException
+                _logger.LogError($"Oreder {request.Id} was not found.");
+                throw new NotFoundException(nameof(Order), request.Id);
             }
             _mapper.Map(request, orderToUpdate, typeof(UpdateOrderCommand), typeof(Order));
 
             await _orderRepository.UpdateAsync(orderToUpdate);
 
-            _logger.LogInformation($"Order {orderToUpdate.Id} was updated");
+            _logger.LogInformation($"Order {orderToUpdate.Id} was updated.");
             return Unit.Value;
         }
     }
