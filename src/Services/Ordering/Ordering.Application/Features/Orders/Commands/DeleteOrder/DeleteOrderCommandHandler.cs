@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
 using Ordering.Application.Contracs.Persistence;
+using Ordering.Application.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,11 +31,12 @@ namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
 
             if(order is null)
             {
-                _logger.LogError("...");
-                //thrwo new NotFoundException(nameOf(order), request.Id);
+                _logger.LogError($"Order {request.Id} was not found.");
+                throw new NotFoundException(nameof(order), request.Id);
             }
             await _orderRepository.DeleteAsync(order);
-            throw new NotImplementedException();
+
+            return Unit.Value;
         }
     }
 }
