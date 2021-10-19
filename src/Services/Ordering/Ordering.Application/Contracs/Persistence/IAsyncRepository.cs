@@ -12,6 +12,8 @@ namespace Ordering.Application.Contracs.Persistence
     {
         Task<IReadOnlyList<T>> GetAllAsync();
 
+        Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate); 
+
         Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null,
                                         Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                         string includeString = null,
@@ -26,7 +28,7 @@ namespace Ordering.Application.Contracs.Persistence
 
         Task<T> AddAsync(T entity);
 
-        Task<T> UpdateAsync(T entity);
+        Task UpdateAsync(T entity);
 
         Task DeleteAsync(T entity);
     }
