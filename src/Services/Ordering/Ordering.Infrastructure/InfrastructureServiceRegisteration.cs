@@ -12,7 +12,7 @@ namespace Ordering.Infrastructure
 {
     public class InfrastructureServiceRegisteration
     {
-        public static void AddInfrastructureService(IServiceCollection services, IConfiguration configuration)
+        public static void AddInfrastructureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<OrderContext>(options => options.UseSqlServer(configuration.GetConnectionString("OrderingConnectionString")));
 
