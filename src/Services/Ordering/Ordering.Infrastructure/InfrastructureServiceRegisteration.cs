@@ -10,9 +10,9 @@ using Ordering.Infrastructure.Mail;
 
 namespace Ordering.Infrastructure
 {
-    public class InfrastructureServiceRegisteration
+    public static class InfrastructureServiceRegisteration
     {
-        public static void AddInfrastructureServices(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<OrderContext>(options => options.UseSqlServer(configuration.GetConnectionString("OrderingConnectionString")));
 
@@ -21,6 +21,8 @@ namespace Ordering.Infrastructure
 
             services.Configure<EmailSettings>(c => configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
+
+            return services;
         }
     }
 }
