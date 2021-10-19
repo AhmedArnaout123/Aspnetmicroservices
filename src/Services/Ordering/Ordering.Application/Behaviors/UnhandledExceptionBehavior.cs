@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Behaviors
 {
-    class UnhandledExceptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class UnhandledExceptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly ILogger<TRequest> _logger;
 
