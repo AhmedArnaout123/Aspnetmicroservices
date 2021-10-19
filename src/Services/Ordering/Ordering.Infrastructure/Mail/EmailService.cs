@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ordering.Infrastructure.EmailService
+namespace Ordering.Infrastructure.Mail
 {
     public class EmailService : IEmailService
     {
