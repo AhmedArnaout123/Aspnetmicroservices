@@ -28,7 +28,7 @@ namespace Ordering.Application.Behaviors
             catch(Exception ex)
             {
                 var requestName = typeof(TRequest).Name;
-                _logger.LogError(ex, "Application Request: Unhandled Exception fro Request {Name} {@Request", requestName, request);
+                _logger.LogError(ex, "Application Request: Unhandled Exception fro Request {Name} {@Request}", requestName, request);
                 throw;
             }
         }
