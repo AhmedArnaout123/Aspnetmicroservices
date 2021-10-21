@@ -23,7 +23,7 @@ namespace Ordering.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("{UserName}", Name = nameof(GetOrders))]
+        [HttpGet("{userName}", Name = nameof(GetOrders))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<OrderVm>))]
         public async Task<ActionResult<IEnumerable<OrderVm>>> GetOrders(string userName)
         {
@@ -33,7 +33,7 @@ namespace Ordering.API.Controllers
         } 
         
         //testing purpose
-        [HttpGet(Name = nameof(CheckoutOrder))]
+        [HttpPost(Name = nameof(CheckoutOrder))]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(int))]
         public async Task<ActionResult<int>> CheckoutOrder([FromBody] CheckoutOrderCommand command)
         {
