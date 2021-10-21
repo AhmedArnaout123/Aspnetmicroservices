@@ -13,7 +13,7 @@ namespace Ordering.Infrastructure.Persistence
     {
         public static async Task SeedOrders(OrderContext ordersContext, ILogger<OrderContextSeed> logger)
         {
-            if(ordersContext.Orders.Any())
+            if(!ordersContext.Orders.Any())
             {
                 ordersContext.Orders.AddRange(GetPreconfiguredOrders());
                 await ordersContext.SaveChangesAsync();
