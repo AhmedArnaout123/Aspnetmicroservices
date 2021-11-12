@@ -29,7 +29,7 @@ namespace Basket.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpcClient<DiscountService.DiscountServiceClient>(
-                o => o.Address = new Uri(Configuration["GrpcSettings:Discount"])
+                o => o.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"])
             );
             services.AddScoped<DiscountGrpcService>();
             services.AddControllers();
